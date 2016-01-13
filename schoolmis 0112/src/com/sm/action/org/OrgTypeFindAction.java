@@ -96,15 +96,7 @@ public class OrgTypeFindAction implements FunctionAction, ActionListener {
 			OrgTypeDAO dao = new OrgTypeDAOImpl();
 			OrgType topOrgType = new OrgType();
 			topOrgType.setOrgTypeName(name);
-			List<OrgType> list = dao.findByLike(topOrgType);
-			String data[][] = new String[list.size()][3];
-			for (int i = 0; i < list.size(); i++) {
-				OrgType o = list.get(i);
-				data[i][0] = o.getOrgTypeId();
-				data[i][1] = o.getOrgTypeName();
-				data[i][2] = o.getOrgTypeMemo();
-			}
-			ot.tableModel.setDataVector(data, ot.OrgTypeTitle);
+			ot.tableModel.setDataVector(ot.getData(dao.findByLike(topOrgType)), ot.OrgTypeTitle);
 		}
 	}
 
@@ -135,7 +127,7 @@ public class OrgTypeFindAction implements FunctionAction, ActionListener {
 			this.bodyPanel.add(this.orgTypeIdLabel, gbc);
 
 			this.orgTypeIdField = new JTextField(20);
-			this.orgTypeIdField.setText(orgType.getOrgTypeId());
+			this.orgTypeIdField.setText(this.orgType.getOrgTypeId());
 			this.orgTypeIdField.setEditable(false);
 			gbc.gridx = 1;
 			gbc.gridy = 0;
@@ -147,7 +139,7 @@ public class OrgTypeFindAction implements FunctionAction, ActionListener {
 			this.bodyPanel.add(this.orgTypeNameLabel, gbc);
 
 			this.orgTypeNameField = new JTextField(20);
-			this.orgTypeNameField.setText(orgType.getOrgTypeName());
+			this.orgTypeNameField.setText(this.orgType.getOrgTypeName());
 			this.orgTypeNameField.setEditable(false);
 			gbc.gridx = 1;
 			gbc.gridy = 1;
@@ -159,7 +151,7 @@ public class OrgTypeFindAction implements FunctionAction, ActionListener {
 			this.bodyPanel.add(this.orgTypeMemoLabel, gbc);
 
 			this.orgTypeMemoArea = new JTextArea(8, 20);
-			this.orgTypeMemoArea.setText(orgType.getOrgTypeMemo());
+			this.orgTypeMemoArea.setText(this.orgType.getOrgTypeMemo());
 			this.orgTypeMemoArea.setEditable(false);
 			this.scrollPane = new JScrollPane();
 			this.scrollPane.getViewport().add(this.orgTypeMemoArea);
@@ -167,7 +159,7 @@ public class OrgTypeFindAction implements FunctionAction, ActionListener {
 			gbc.gridy = 2;
 			this.bodyPanel.add(this.scrollPane, gbc);
 
-			this.setTitle("²éÑ¯");
+			this.setTitle("ÏêÇé");
 			this.setVisible(true);
 		}
 

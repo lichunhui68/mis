@@ -90,7 +90,7 @@ public class OrgAddAction implements FunctionAction {
 		gbc.gridy = 3;
 		this.bodyPanel.add(this.orgMemoLabel, gbc);
 		
-		this.orgMemoArea = new JTextArea(10, 50);
+		this.orgMemoArea = new JTextArea(8, 20);
 		this.scrollPane = new JScrollPane();
 		this.scrollPane.getViewport().add(this.orgMemoArea);
 		gbc.gridx = 1;

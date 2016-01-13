@@ -75,7 +75,7 @@ public class OrgTypeAddAction implements FunctionAction {
 		gbc.gridy = 2;
 		this.bodyPanel.add(this.orgTypeMemoLabel, gbc);
 
-		this.orgTypeMemoArea = new JTextArea(10, 50);
+		this.orgTypeMemoArea = new JTextArea(8, 20);
 		this.scrollPane = new JScrollPane(this.orgTypeMemoArea);
 		gbc.gridx = 1;
 		gbc.gridy = 2;

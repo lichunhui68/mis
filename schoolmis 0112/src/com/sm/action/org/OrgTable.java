@@ -27,4 +27,17 @@ public class OrgTable extends MyTableModel {
 		}
 		return data;
 	}
+	
+	public String[][] getData(List<Org> list) {
+		String[][] data = new String[list.size()][5];
+ 		for (int i = 0; i < list.size(); i++) {
+			Org o = list.get(i);
+			data[i][0] = o.getOrgId();
+			data[i][1] = o.getOrgNo();
+			data[i][2] = o.getOrgName();
+			data[i][3] = o.getOrgMemo();
+			data[i][4] = o.getOrgTypeId();
+		}
+		return data;
+	}
 }
