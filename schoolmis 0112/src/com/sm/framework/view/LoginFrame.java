@@ -1,5 +1,6 @@
 package com.sm.framework.view;
 
+import java.awt.Container;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -42,19 +43,22 @@ public class LoginFrame extends JFrame implements ActionListener {
 	}
 	
 	private void init() {
-		this.bodyPanel = (JPanel)this.getContentPane();
+		Container content = this.getContentPane();
+		this.bodyPanel = new WelcomePanel();
 		this.bodyPanel.setLayout(new GridBagLayout());
+		content.add(this.bodyPanel);
+		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
-		this.titleLabel = new JLabel("ÓÃ»§µÇÂ¼");
-		this.titleLabel.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 24));
+		this.titleLabel = new JLabel("ç”¨æˆ·ç™»å½•");
+		this.titleLabel.setFont(new Font("å¾®è½¯é›…é»‘", Font.PLAIN, 24));
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		this.bodyPanel.add(this.titleLabel, gbc);
 		
 		gbc.anchor = GridBagConstraints.EAST;
 		
-		this.nameLabel = new JLabel("ÓÃ»§Ãû£º");
+		this.nameLabel = new JLabel("ç”¨æˆ·åï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		this.bodyPanel.add(this.nameLabel, gbc);
@@ -64,7 +68,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 		gbc.gridy = 1;
 		this.bodyPanel.add(this.nameField, gbc);
 		
-		this.passwordLabel = new JLabel("ÃÜ    Âë£º");
+		this.passwordLabel = new JLabel("å¯†    ç ï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		this.bodyPanel.add(this.passwordLabel, gbc);
@@ -75,9 +79,10 @@ public class LoginFrame extends JFrame implements ActionListener {
 		this.bodyPanel.add(this.passwordField, gbc);
 		
 		this.buttonPanel = new JPanel();
-		this.loginButton = new JButton("µÇÂ¼");
+		this.buttonPanel.setOpaque(false);
+		this.loginButton = new JButton("ç™»å½•");
 		this.loginButton.addActionListener(this);
-		this.resetButton = new JButton("ÖØÖÃ");
+		this.resetButton = new JButton("é‡ç½®");
 		this.resetButton.addActionListener(this);
 		this.buttonPanel.add(this.loginButton);
 		this.buttonPanel.add(this.resetButton);
@@ -108,15 +113,15 @@ public class LoginFrame extends JFrame implements ActionListener {
 			newUser.setUserId(id);
 			newUser.setUserPwd(pwd);
 			if (id.equals("") || pwd.equals("")) {
-				JOptionPane.showMessageDialog(this, "ÓÃ»§ÃûÃÜÂë²»ÄÜÎª¿Õ£¡");
+				JOptionPane.showMessageDialog(this, "ç”¨æˆ·åå¯†ç ä¸èƒ½ä¸ºç©ºï¼");
 			} else if (this.checkUser(newUser)) {
-				JOptionPane.showMessageDialog(this, "µÇÂ¼³É¹¦£¡");
+				JOptionPane.showMessageDialog(this, "ç™»å½•æˆåŠŸï¼");
 				this.dispose();
 				MainFrame mainFrame = new MainFrame(this.loginUser);
 				mainFrame.setBounds(250, 120, 780, 540);
 				mainFrame.setVisible(true);
 			} else {
-				JOptionPane.showMessageDialog(this, "ÓÃ»§ÃûÃÜÂë´íÎó");
+				JOptionPane.showMessageDialog(this, "ç”¨æˆ·åå¯†ç é”™è¯¯");
 			}
 		} else if (e.getSource() == this.resetButton) {
 			this.nameField.setText("");

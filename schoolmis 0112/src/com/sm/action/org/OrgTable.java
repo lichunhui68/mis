@@ -7,7 +7,7 @@ import com.sm.framework.model.dao.impl.OrgDAOImpl;
 import com.sm.framework.model.entity.Org;
 
 public class OrgTable extends MyTableModel {
-	public static String[] OrgTitle = {"机构编号", "机构排名", "机构名称", "机构备注", "机构类别编号"};
+	public static String[] OrgTitle = {"鏈烘瀯缂栧彿", "鏈烘瀯鎺掑悕", "鏈烘瀯鍚嶇О", "鏈烘瀯澶囨敞", "鏈烘瀯绫诲埆缂栧彿"};
 	
 	public OrgTable() {
 		super(OrgTitle);

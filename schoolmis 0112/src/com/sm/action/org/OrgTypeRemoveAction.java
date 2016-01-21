@@ -35,9 +35,9 @@ public class OrgTypeRemoveAction implements FunctionAction, ActionListener {
 		this.bodyPanel.add(ot.scrollPane, BorderLayout.CENTER);
 		
 		this.buttonPanel = new JPanel(new FlowLayout());
-		this.removeButton = new JButton("É¾³ı");
+		this.removeButton = new JButton("åˆ é™¤");
 		this.removeButton.addActionListener(this);
-		this.refreshButton = new JButton("Ë¢ĞÂ");
+		this.refreshButton = new JButton("åˆ·æ–°");
 		this.refreshButton.addActionListener(this);
 		this.buttonPanel.add(this.removeButton);
 		this.buttonPanel.add(this.refreshButton);
@@ -58,8 +58,8 @@ public class OrgTypeRemoveAction implements FunctionAction, ActionListener {
 		this.tabbedPane = new JTabbedPane();
 		this.inBodyPanel();
 		this.inHelpPanel();
-		this.tabbedPane.add("É¾³ı»ú¹¹Àà±ğ", this.bodyPanel);
-		this.tabbedPane.add("É¾³ıÀà±ğ°ïÖú", this.helpPanel);
+		this.tabbedPane.add("åˆ é™¤æœºæ„ç±»åˆ«", this.bodyPanel);
+		this.tabbedPane.add("åˆ é™¤ç±»åˆ«å¸®åŠ©", this.helpPanel);
 		
 		workPanel.add(this.tabbedPane, BorderLayout.CENTER);
 	}
@@ -69,11 +69,11 @@ public class OrgTypeRemoveAction implements FunctionAction, ActionListener {
 		if (e.getSource() == this.removeButton) {
 			int n = ot.table.getSelectedRowCount();
 			if (n != 1) {
-				JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñÒ»Ìõ¼ÇÂ¼É¾³ı£¡");
+				JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©ä¸€æ¡è®°å½•åˆ é™¤ï¼");
 			}  else {
 				String id = ot.table.getValueAt(ot.table.getSelectedRow(), 0).toString();
 				OrgTypeDAO dao = new OrgTypeDAOImpl();
-					int result = JOptionPane.showConfirmDialog(null, "ÄúÈ·¶¨ÒªÉ¾³ıÂğ");
+					int result = JOptionPane.showConfirmDialog(null, "æ‚¨ç¡®å®šè¦åˆ é™¤å—");
 					if (result == JOptionPane.YES_OPTION) {
 						dao.removeOrgType(id);
 						ot.refresh();

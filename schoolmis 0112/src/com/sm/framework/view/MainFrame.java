@@ -56,7 +56,7 @@ public class MainFrame extends JFrame{
 				findItem.setActionCommand(menu2.getMenuId());
 				findItem.setText(menu2.getMenuName());
 				findItem.setToolTipText(menu2.getMenuMemo());
-				findItem.addActionListener(new MenuListener(this));
+				findItem.addActionListener(new MenuListener(this, this.misUser));
 				findMenu.add(findItem);
 			}
 			this.menuBar.add(findMenu);
@@ -67,9 +67,9 @@ public class MainFrame extends JFrame{
 		this.menuBar = new JMenuBar();
 		this.createMenu();
 		
-		this.helpMenu = new JMenu("°ïÖú");
-		this.aboutItem = new JMenuItem("¹ØÓÚ");
-		this.contentItem = new JMenuItem("ÄÚÈİ");
+		this.helpMenu = new JMenu("å¸®åŠ©");
+		this.aboutItem = new JMenuItem("å…³äº");
+		this.contentItem = new JMenuItem("å†…å®¹");
 		this.helpMenu.add(this.aboutItem);
 		this.helpMenu.add(this.contentItem);
 		this.menuBar.add(this.helpMenu);
@@ -81,26 +81,26 @@ public class MainFrame extends JFrame{
 		this.toolBar = new JToolBar();
 		this.toolBar.setFloatable(false);
 		this.toolBar.setLayout(new FlowLayout(FlowLayout.CENTER));
-		this.welcomeLabel = new JLabel("»¶Ó­Äú£º");
+		this.welcomeLabel = new JLabel("æ¬¢è¿æ‚¨ï¼š");
 		this.toolBar.add(this.welcomeLabel);
 		this.nameLabel = new JLabel(this.misUser.getUserName());
 		this.toolBar.add(this.nameLabel);
-		this.relogButton = new JButton("ÖØĞÂµÇÂ¼");
+		this.relogButton = new JButton("é‡æ–°ç™»å½•");
 		this.toolBar.add(this.relogButton);
-		this.exitButton = new JButton("ÍË³ö");
+		this.exitButton = new JButton("é€€å‡º");
 		this.toolBar.add(this.exitButton);
 		this.bodyPanel.add(this.toolBar, BorderLayout.NORTH);
 		
-		this.welcomePanel = new JPanel();
+		this.welcomePanel = new WelcomePanel();
 		this.welcomePanel.setBackground(Color.LIGHT_GRAY);
 		this.bodyPanel.add(this.welcomePanel, BorderLayout.CENTER);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		this.stateLabel = new JLabel(sdf.format(new Date()) + "    °æ±¾ĞÅÏ¢V2.0", JLabel.CENTER);
+		this.stateLabel = new JLabel(sdf.format(new Date()) + "    ç‰ˆæœ¬ä¿¡æ¯V2.0", JLabel.CENTER);
 		this.bodyPanel.add(this.stateLabel, BorderLayout.SOUTH);
 		
 		
-		this.setTitle("¹ÜÀíÏµÍ³");
+		this.setTitle("ç®¡ç†ç³»ç»Ÿ");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	

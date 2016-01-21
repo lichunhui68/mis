@@ -54,7 +54,7 @@ public class OrgAddAction implements FunctionAction {
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		gbc.anchor = GridBagConstraints.EAST;
-		this.orgIdLabel = new JLabel("»ú¹¹±àºÅ£º");
+		this.orgIdLabel = new JLabel("æœºæ„ç¼–å·ï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -65,7 +65,7 @@ public class OrgAddAction implements FunctionAction {
 		gbc.gridy = 0;
 		this.bodyPanel.add(this.orgIdField, gbc);
 		
-		this.orgNoLabel = new JLabel("»ú¹¹ÅÅÃû£º");
+		this.orgNoLabel = new JLabel("æœºæ„æ’åï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		this.bodyPanel.add(this.orgNoLabel, gbc);
@@ -75,7 +75,7 @@ public class OrgAddAction implements FunctionAction {
 		gbc.gridy = 1;
 		this.bodyPanel.add(this.orgNoField, gbc);
 		
-		this.orgNameLabel = new JLabel("»ú¹¹Ãû³Æ£º");
+		this.orgNameLabel = new JLabel("æœºæ„åç§°ï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		this.bodyPanel.add(this.orgNameLabel, gbc);
@@ -85,7 +85,7 @@ public class OrgAddAction implements FunctionAction {
 		gbc.gridy = 2;
 		this.bodyPanel.add(this.orgNameField, gbc);
 		
-		this.orgMemoLabel = new JLabel("»ú¹¹±¸×¢£º");
+		this.orgMemoLabel = new JLabel("æœºæ„å¤‡æ³¨ï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 3;
 		this.bodyPanel.add(this.orgMemoLabel, gbc);
@@ -97,7 +97,7 @@ public class OrgAddAction implements FunctionAction {
 		gbc.gridy = 3;
 		this.bodyPanel.add(this.scrollPane, gbc);
 		
-		this.orgTypeIdLabel = new JLabel("Àà±ğ±àºÅ£º");
+		this.orgTypeIdLabel = new JLabel("ç±»åˆ«ç¼–å·ï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 4;
 		this.bodyPanel.add(this.orgTypeIdLabel, gbc);
@@ -108,7 +108,7 @@ public class OrgAddAction implements FunctionAction {
 		this.bodyPanel.add(this.orgTypeIdField, gbc);
 		
 		this.buttonPanel = new JPanel(new FlowLayout());
-		this.addButton = new JButton("Ôö¼Ó");
+		this.addButton = new JButton("å¢åŠ ");
 		this.addButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -121,13 +121,13 @@ public class OrgAddAction implements FunctionAction {
 				o.setOrgMemo(orgMemoArea.getText());
 				o.setOrgTypeId(orgTypeIdField.getText());
 				if (dao.addOrg(o)) {
-					JOptionPane.showMessageDialog(null, "Ìí¼Ó³É¹¦");
+					JOptionPane.showMessageDialog(null, "æ·»åŠ æˆåŠŸ");
 					cleanAll();
 				}
 				
 			}
 		});
-		this.cleanButton = new JButton("ÖØÖÃ");
+		this.cleanButton = new JButton("é‡ç½®");
 		this.cleanButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -155,8 +155,8 @@ public class OrgAddAction implements FunctionAction {
 		this.tabbedPane = new JTabbedPane();
 		this.inBodyPanel();
 		this.inHelpPanel();
-		this.tabbedPane.add("Ôö¼Ó»ú¹¹", this.bodyPanel);
-		this.tabbedPane.add("Ôö¼Ó»ú¹¹°ïÖú", this.helpPanel);
+		this.tabbedPane.add("å¢åŠ æœºæ„", this.bodyPanel);
+		this.tabbedPane.add("å¢åŠ æœºæ„å¸®åŠ©", this.helpPanel);
 		
 		workPanel.add(this.tabbedPane, BorderLayout.CENTER);		
 	}

@@ -33,7 +33,7 @@ public class MyTableModel {
 	public void createTable() {
 		this.tableModel = new DefaultTableModel(this.getData(), this.title);
 		this.table = new JTable(this.tableModel){
-			// ÈÃ±í¸ñÎÞ·¨±à¼­
+			// è®©è¡¨æ ¼æ— æ³•ç¼–è¾‘
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				return false;

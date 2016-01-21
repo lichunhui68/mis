@@ -7,7 +7,7 @@ import com.sm.framework.model.dao.impl.OrgTypeDAOImpl;
 import com.sm.framework.model.entity.OrgType;
 
 public class OrgTypeTable extends MyTableModel {
-	public static String[] OrgTypeTitle = { "机构类别编号", "机构类别名称", "结构类别备注" };
+	public static String[] OrgTypeTitle = { "鏈烘瀯绫诲埆缂栧彿", "鏈烘瀯绫诲埆鍚嶇О", "缁撴瀯绫诲埆澶囨敞" };
 
 	
 	public OrgTypeTable() {

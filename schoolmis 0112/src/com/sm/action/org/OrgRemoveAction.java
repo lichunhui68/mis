@@ -33,9 +33,9 @@ public class OrgRemoveAction implements FunctionAction, ActionListener {
 		this.bodyPanel.add(ot.scrollPane, BorderLayout.CENTER);
 		
 		this.buttonPanel = new JPanel();
-		this.removeButton = new JButton("删除");
+		this.removeButton = new JButton("鍒犻櫎");
 		this.removeButton.addActionListener(this);
-		this.refreshButton = new JButton("刷新");
+		this.refreshButton = new JButton("鍒锋柊");
 		this.refreshButton.addActionListener(this);
 		this.buttonPanel.add(this.removeButton);
 		this.buttonPanel.add(this.refreshButton);
@@ -56,8 +56,8 @@ public class OrgRemoveAction implements FunctionAction, ActionListener {
 		this.tabbedPane = new JTabbedPane();
 		this.inBodyPanel();
 		this.inHelpPanel();
-		this.tabbedPane.add("删除机构", this.bodyPanel);
-		this.tabbedPane.add("删除机构帮助", this.helpPanel);
+		this.tabbedPane.add("鍒犻櫎鏈烘瀯", this.bodyPanel);
+		this.tabbedPane.add("鍒犻櫎鏈烘瀯甯姪", this.helpPanel);
 		
 		workPanel.add(this.tabbedPane, BorderLayout.CENTER);
 	}
@@ -67,11 +67,11 @@ public class OrgRemoveAction implements FunctionAction, ActionListener {
 		if (e.getSource() == this.removeButton) {
 			int n = ot.table.getSelectedRowCount();
 			if (n != 1) {
-				JOptionPane.showMessageDialog(null, "请选择一条记录！");
+				JOptionPane.showMessageDialog(null, "璇烽�夋嫨涓�鏉¤褰曪紒");
 			} else {
 				String id = ot.table.getValueAt(ot.table.getSelectedRow(), 0).toString();
 				OrgDAO dao = new OrgDAOImpl();
-				int result = JOptionPane.showConfirmDialog(null, "您确定要删除吗？");
+				int result = JOptionPane.showConfirmDialog(null, "鎮ㄧ‘瀹氳鍒犻櫎鍚楋紵");
 				if (result == JOptionPane.YES_OPTION) {
 					dao.removeOrg(id);
 					ot.refresh();

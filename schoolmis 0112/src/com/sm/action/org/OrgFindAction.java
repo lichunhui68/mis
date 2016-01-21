@@ -40,11 +40,11 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 		this.bodyPanel = new JPanel(new BorderLayout());
 
 		this.topPanel = new JPanel();
-		this.nameLabel = new JLabel("»ú¹¹Ãû³Æ£º");
+		this.nameLabel = new JLabel("æœºæ„åç§°ï¼š");
 		this.topPanel.add(this.nameLabel);
 		this.nameField = new JTextField(12);
 		this.topPanel.add(this.nameField);
-		this.findButton = new JButton("²éÑ¯");
+		this.findButton = new JButton("æŸ¥è¯¢");
 		this.findButton.addActionListener(this);
 		this.topPanel.add(this.findButton);
 		this.bodyPanel.add(this.topPanel, BorderLayout.NORTH);
@@ -53,7 +53,7 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 		this.bodyPanel.add(ot.scrollPane, BorderLayout.CENTER);
 
 		this.buttonPanel = new JPanel();
-		this.detailsButton = new JButton("ÏêÇé");
+		this.detailsButton = new JButton("è¯¦æƒ…");
 		this.detailsButton.addActionListener(this);
 		this.buttonPanel.add(this.detailsButton);
 		this.bodyPanel.add(this.buttonPanel, BorderLayout.SOUTH);
@@ -71,8 +71,8 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 		this.tabbedPane = new JTabbedPane();
 		this.inBodyPanel();
 		this.inHelpPanel();
-		this.tabbedPane.add("²éÑ¯»ú¹¹", this.bodyPanel);
-		this.tabbedPane.add("²éÑ¯»ú¹¹°ïÖú", this.helpPanel);
+		this.tabbedPane.add("æŸ¥è¯¢æœºæ„", this.bodyPanel);
+		this.tabbedPane.add("æŸ¥è¯¢æœºæ„å¸®åŠ©", this.helpPanel);
 		workPanel.add(this.tabbedPane, BorderLayout.CENTER);
 	}
 
@@ -88,7 +88,7 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 		} else if (e.getSource() == this.detailsButton) {
 			int n = ot.table.getSelectedRowCount();
 			if (n != 1) {
-				JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñÒ»Ìõ¼ÇÂ¼²éÑ¯£¡");
+				JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©ä¸€æ¡è®°å½•æŸ¥è¯¢ï¼");
 			} else {
 				String id = ot.table.getValueAt(ot.table.getSelectedRow(),0).toString();
 				FindDialog findDialog = new FindDialog(id);
@@ -132,7 +132,7 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 			GridBagConstraints gbc = new GridBagConstraints();
 
 			gbc.anchor = GridBagConstraints.EAST;
-			this.orgIdLabel = new JLabel("»ú¹¹±àºÅ£º");
+			this.orgIdLabel = new JLabel("æœºæ„ç¼–å·ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 0;
 			gbc.fill = GridBagConstraints.BOTH;
@@ -145,7 +145,7 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 			gbc.gridy = 0;
 			this.bodyPanel.add(this.orgIdField, gbc);
 
-			this.orgNoLabel = new JLabel("»ú¹¹ÅÅÃû£º");
+			this.orgNoLabel = new JLabel("æœºæ„æ’åï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 1;
 			this.bodyPanel.add(this.orgNoLabel, gbc);
@@ -157,7 +157,7 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 			gbc.gridy = 1;
 			this.bodyPanel.add(this.orgNoField, gbc);
 
-			this.orgNameLabel = new JLabel("»ú¹¹Ãû³Æ£º");
+			this.orgNameLabel = new JLabel("æœºæ„åç§°ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 2;
 			this.bodyPanel.add(this.orgNameLabel, gbc);
@@ -169,7 +169,7 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 			gbc.gridy = 2;
 			this.bodyPanel.add(this.orgNameField, gbc);
 
-			this.orgMemoLabel = new JLabel("»ú¹¹±¸×¢£º");
+			this.orgMemoLabel = new JLabel("æœºæ„å¤‡æ³¨ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 3;
 			this.bodyPanel.add(this.orgMemoLabel, gbc);
@@ -183,7 +183,7 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 			gbc.gridy = 3;
 			this.bodyPanel.add(this.scrollPane, gbc);
 
-			this.orgTypeIdLabel = new JLabel("Àà±ğ±àºÅ£º");
+			this.orgTypeIdLabel = new JLabel("ç±»åˆ«ç¼–å·ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 4;
 			this.bodyPanel.add(this.orgTypeIdLabel, gbc);
@@ -195,7 +195,7 @@ public class OrgFindAction implements FunctionAction, ActionListener {
 			gbc.gridy = 4;
 			this.bodyPanel.add(this.orgTypeIdField, gbc);
 			
-			this.setTitle("ÏêÇé");
+			this.setTitle("è¯¦æƒ…");
 			this.setVisible(true);
 		}
 		

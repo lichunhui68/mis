@@ -48,7 +48,7 @@ public class OrgTypeAddAction implements FunctionAction {
 		this.bodyPanel = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 
-		this.orgTypeIdLabel = new JLabel("»ú¹¹Àà±ğ±àºÅ£º");
+		this.orgTypeIdLabel = new JLabel("æœºæ„ç±»åˆ«ç¼–å·ï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -59,7 +59,7 @@ public class OrgTypeAddAction implements FunctionAction {
 		gbc.gridy = 0;
 		bodyPanel.add(this.orgTypeIdField, gbc);
 
-		this.orgTypeNameLabel = new JLabel("»ú¹¹Àà±ğÃû³Æ£º");
+		this.orgTypeNameLabel = new JLabel("æœºæ„ç±»åˆ«åç§°ï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -70,7 +70,7 @@ public class OrgTypeAddAction implements FunctionAction {
 		gbc.gridy = 1;
 		this.bodyPanel.add(this.orgTypeNameField, gbc);
 
-		this.orgTypeMemoLabel = new JLabel("»ú¹¹Àà±ğ±¸×¢£º");
+		this.orgTypeMemoLabel = new JLabel("æœºæ„ç±»åˆ«å¤‡æ³¨ï¼š");
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		this.bodyPanel.add(this.orgTypeMemoLabel, gbc);
@@ -82,7 +82,7 @@ public class OrgTypeAddAction implements FunctionAction {
 		this.bodyPanel.add(this.scrollPane, gbc);
 
 		this.buttonPanel = new JPanel(new FlowLayout());
-		this.addButton = new JButton("Ôö¼Ó");
+		this.addButton = new JButton("å¢åŠ ");
 		this.addButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -96,12 +96,12 @@ public class OrgTypeAddAction implements FunctionAction {
 				o.setOrgTypeName(name);
 				o.setOrgTypeMemo(memo);
 				if (dao.addOrgType(o)) {
-					JOptionPane.showMessageDialog(null, "Ìí¼Ó³É¹¦");
+					JOptionPane.showMessageDialog(null, "æ·»åŠ æˆåŠŸ");
 					cleanAll();
 				}
 			}
 		});
-		this.cleanButton = new JButton("ÖØÖÃ");
+		this.cleanButton = new JButton("é‡ç½®");
 		this.cleanButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -131,8 +131,8 @@ public class OrgTypeAddAction implements FunctionAction {
 		this.tabbedPane = new JTabbedPane();
 		this.inBodyPanel();
 		this.initHelpPanel();
-		this.tabbedPane.add("Ôö¼ÓÓÃ»§Àà±ğ", this.bodyPanel);
-		this.tabbedPane.add("Ôö¼ÓÓÃ»§Àà±ğ°ïÖú", this.helpPanel);
+		this.tabbedPane.add("å¢åŠ ç”¨æˆ·ç±»åˆ«", this.bodyPanel);
+		this.tabbedPane.add("å¢åŠ ç”¨æˆ·ç±»åˆ«å¸®åŠ©", this.helpPanel);
 
 		workPanel.add(tabbedPane, BorderLayout.CENTER);
 	}

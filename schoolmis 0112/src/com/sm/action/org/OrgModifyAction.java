@@ -43,9 +43,9 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 		this.bodyPanel.add(ot.scrollPane, BorderLayout.CENTER);
 		
 		this.buttonPanel = new JPanel(new FlowLayout());
-		this.modifyButton = new JButton("ĞŞ¸Ä");
+		this.modifyButton = new JButton("ä¿®æ”¹");
 		this.modifyButton.addActionListener(this);
-		this.refreshButton = new JButton("Ë¢ĞÂ");
+		this.refreshButton = new JButton("åˆ·æ–°");
 		this.refreshButton.addActionListener(this);
 		this.buttonPanel.add(this.modifyButton);
 		this.buttonPanel.add(this.refreshButton);
@@ -66,8 +66,8 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 		this.tabbedPane = new JTabbedPane();
 		this.inBodyPanel();
 		this.inHelpPanel();
-		this.tabbedPane.add("ĞŞ¸Ä»ú¹¹", this.bodyPanel);
-		this.tabbedPane.add("ĞŞ¸Ä»ú¹¹°ïÖú", this.helpPanel);
+		this.tabbedPane.add("ä¿®æ”¹æœºæ„", this.bodyPanel);
+		this.tabbedPane.add("ä¿®æ”¹æœºæ„å¸®åŠ©", this.helpPanel);
 		
 		workPanel.add(this.tabbedPane, BorderLayout.CENTER);
 	}
@@ -77,7 +77,7 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 		if (e.getSource() == this.modifyButton) {
 			int n = ot.table.getSelectedRowCount();
 			if (n != 1) {
-				JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñÒ»ÌõĞŞ¸Ä£¡");
+				JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©ä¸€æ¡ä¿®æ”¹ï¼");
 			} else {
 				String id = ot.table.getValueAt(ot.table.getSelectedRow(), 0).toString();
 				ModifyDialog modifyDialog = new ModifyDialog(id, this);
@@ -116,7 +116,7 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 			this.bodyPanel.setLayout(new GridBagLayout());
 			GridBagConstraints gbc = new GridBagConstraints(); 
 			
-			this.orgIdLabel = new JLabel("²¿ÃÅ±àºÅ£º");
+			this.orgIdLabel = new JLabel("éƒ¨é—¨ç¼–å·ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 0;
 			this.bodyPanel.add(this.orgIdLabel, gbc);
@@ -127,7 +127,7 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 			gbc.gridy = 0;
 			this.bodyPanel.add(this.orgIdField, gbc);
 			
-			this.orgNoLabel = new JLabel("²¿ÃÅÅÅÃû£º");
+			this.orgNoLabel = new JLabel("éƒ¨é—¨æ’åï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 1;
 			this.bodyPanel.add(this.orgNoLabel, gbc);
@@ -137,7 +137,7 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 			gbc.gridy = 1;
 			this.bodyPanel.add(this.orgNoField, gbc);
 			
-			this.orgNameLabel = new JLabel("²¿ÃÅÃû³Æ£º");
+			this.orgNameLabel = new JLabel("éƒ¨é—¨åç§°ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 2;
 			this.bodyPanel.add(this.orgNameLabel, gbc);
@@ -147,7 +147,7 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 			gbc.gridy = 2;
 			this.bodyPanel.add(this.orgNameField, gbc);
 			
-			this.orgMemoLabel = new JLabel("²¿ÃÅ±¸×¢£º");
+			this.orgMemoLabel = new JLabel("éƒ¨é—¨å¤‡æ³¨ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 3;
 			this.bodyPanel.add(this.orgMemoLabel, gbc);
@@ -158,7 +158,7 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 			gbc.gridy = 3;
 			this.bodyPanel.add(this.scrollPane, gbc);
 			
-			this.orgTypeIdLabel = new JLabel("Àà±ğ±àºÅ£º");
+			this.orgTypeIdLabel = new JLabel("ç±»åˆ«ç¼–å·ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 4;
 			this.bodyPanel.add(this.orgTypeIdLabel, gbc);
@@ -169,9 +169,9 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 			this.bodyPanel.add(this.orgTypeIdField, gbc);
 			
 			this.buttonPanel = new JPanel();
-			this.modifyButton = new JButton("Ë¢ĞÂ");
+			this.modifyButton = new JButton("åˆ·æ–°");
 			this.modifyButton.addActionListener(this);
-			this.resetButton = new JButton("»¹Ô­");
+			this.resetButton = new JButton("è¿˜åŸ");
 			this.resetButton.addActionListener(this);
 			this.buttonPanel.add(this.modifyButton);
 			this.buttonPanel.add(this.resetButton);
@@ -210,10 +210,10 @@ public class OrgModifyAction implements FunctionAction, ActionListener {
 				o.setOrgTypeId(otid);
 				OrgDAO dao = new OrgDAOImpl();
 				if (dao.modifyOrg(id, o)) {
-					JOptionPane.showMessageDialog(null, "ĞŞ¸Ä³É¹¦");
+					JOptionPane.showMessageDialog(null, "ä¿®æ”¹æˆåŠŸ");
 					ot.refresh();
 				} else {
-					JOptionPane.showMessageDialog(null, "ĞŞ¸ÄÊ§°Ü");
+					JOptionPane.showMessageDialog(null, "ä¿®æ”¹å¤±è´¥");
 				}
 			} else if (e.getSource() == this.resetButton) {
 				this.orgNoField.setText(this.org.getOrgNo());

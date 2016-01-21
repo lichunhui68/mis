@@ -45,9 +45,9 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 		this.bodyPanel.add(ot.scrollPane, BorderLayout.CENTER);
 		
 		this.buttonPanel = new JPanel(); 
-		this.modifyButton = new JButton("ĞŞ¸Ä ");
+		this.modifyButton = new JButton("ä¿®æ”¹ ");
 		this.modifyButton.addActionListener(this);
-		this.refreshButton = new JButton("Ë¢ĞÂ");
+		this.refreshButton = new JButton("åˆ·æ–°");
 		this.refreshButton.addActionListener(this);
 		this.buttonPanel.add(this.modifyButton);
 		this.buttonPanel.add(this.refreshButton);
@@ -66,8 +66,8 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 		this.tabbedPane = new JTabbedPane();
 		this.initBodyPanel();
 		this.initHelpPanel();
-		this.tabbedPane.add("ĞŞ¸Ä»ú¹¹Àà±ğ", this.bodyPanel);
-		this.tabbedPane.add("ĞŞ¸Ä»ú¹¹Àà±ğ°ïÖú", this.helpPanel);
+		this.tabbedPane.add("ä¿®æ”¹æœºæ„ç±»åˆ«", this.bodyPanel);
+		this.tabbedPane.add("ä¿®æ”¹æœºæ„ç±»åˆ«å¸®åŠ©", this.helpPanel);
 		
 		workPanel.add(this.tabbedPane, BorderLayout.CENTER);
 	}
@@ -77,7 +77,7 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 		if (e.getSource() == this.modifyButton) {
 			int n = ot.table.getSelectedRowCount();
 			if (n != 1) {
-				JOptionPane.showMessageDialog(null, "ÇëÑ¡ÔñÒ»Ìõ¼ÇÂ¼£¡");
+				JOptionPane.showMessageDialog(null, "è¯·é€‰æ‹©ä¸€æ¡è®°å½•ï¼");
 			} else {
 				String id = ot.table.getValueAt(ot.table.getSelectedRow(), 0).toString();
 				ModidyDialog modidyDialog = new ModidyDialog(id, this);
@@ -113,7 +113,7 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 			this.bodyPanel.setLayout(new GridBagLayout());
 			GridBagConstraints gbc = new GridBagConstraints();
 			
-			this.orgTypeIdLabel = new JLabel("»ú¹¹Àà±ğ±àºÅ£º");
+			this.orgTypeIdLabel = new JLabel("æœºæ„ç±»åˆ«ç¼–å·ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 0;
 			this.bodyPanel.add(this.orgTypeIdLabel, gbc);
@@ -125,7 +125,7 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 			gbc.gridy = 0;
 			this.bodyPanel.add(this.orgTypeIdField, gbc);
 			
-			this.orgTypeNameLabel = new JLabel("»ú¹¹Àà±ğÃû³Æ£º");
+			this.orgTypeNameLabel = new JLabel("æœºæ„ç±»åˆ«åç§°ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 1;
 			this.bodyPanel.add(this.orgTypeNameLabel, gbc);
@@ -136,7 +136,7 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 			gbc.gridy = 1;
 			this.bodyPanel.add(this.orgTypeNameField, gbc);
 			
-			this.orgTypeMemoLabel = new JLabel("»ú¹¹Àà±ğ±¸×¢£º");
+			this.orgTypeMemoLabel = new JLabel("æœºæ„ç±»åˆ«å¤‡æ³¨ï¼š");
 			gbc.gridx = 0;
 			gbc.gridy = 2;
 			this.bodyPanel.add(this.orgTypeMemoLabel, gbc);
@@ -150,9 +150,9 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 			this.bodyPanel.add(this.scrollPane, gbc);
 			
 			this.buttonPanel = new JPanel(new FlowLayout());
-			this.modifyButton = new JButton("Ë¢ĞÂ");
+			this.modifyButton = new JButton("åˆ·æ–°");
 			this.modifyButton.addActionListener(this);
-			this.restoreButton = new JButton("»¹Ô­");
+			this.restoreButton = new JButton("è¿˜åŸ");
 			this.restoreButton.addActionListener(this);
 			this.buttonPanel.add(this.modifyButton);
 			this.buttonPanel.add(this.restoreButton);
@@ -160,7 +160,7 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 			gbc.gridy = 3;
 			this.bodyPanel.add(this.buttonPanel, gbc);
 			
-			this.setTitle("ĞŞ¸Ä");
+			this.setTitle("ä¿®æ”¹");
 			this.setVisible(true);
 			
 		}
@@ -188,10 +188,10 @@ public class OrgTypeModifyAction implements FunctionAction, ActionListener {
 				o.setOrgTypeMemo(memo);
 				OrgTypeDAO dao = new OrgTypeDAOImpl();
 				if (dao.modifyOrgType(id, o)) {
-					JOptionPane.showMessageDialog(this, "ĞŞ¸Ä³É¹¦");
+					JOptionPane.showMessageDialog(this, "ä¿®æ”¹æˆåŠŸ");
 					ot.refresh();
 				} else {
-					JOptionPane.showMessageDialog(this, "ĞŞ¸ÄÊ§°Ü");
+					JOptionPane.showMessageDialog(this, "ä¿®æ”¹å¤±è´¥");
 				}
 				
 			} else if (e.getSource() == this.restoreButton) {

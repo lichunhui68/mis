@@ -15,15 +15,31 @@ import javax.swing.JPanel;
 import com.sm.framework.model.dao.impl.MisFunctionDAO;
 import com.sm.framework.model.dao.impl.MisFunctionDAOImpl;
 import com.sm.framework.model.entity.MisFunction;
+import com.sm.framework.model.entity.MisUser;
 
 public class MenuListener implements ActionListener {
+	private MisUser misUser = null;
 	private JFrame mainFrame = null;
 	private JPanel buttonPanel = null;
 	
-	private void inButtonPanel(String menuId) {
+//	private void inButtonPanel(String menuId) {
+//		MisFunctionDAO dao = new MisFunctionDAOImpl();
+//		this.buttonPanel = new JPanel(new GridLayout(6, 1));
+//		List<MisFunction> list = dao.findByMenuId(menuId);
+//		for (MisFunction misFunction : list) {
+//			JButton findButton = new JButton();
+//			findButton.setActionCommand(misFunction.getFunctionId());
+//			findButton.setText(misFunction.getFunctionName());
+//			findButton.setToolTipText(misFunction.getFunctionMemo());
+//			findButton.addActionListener(new FunctionListener(this.mainFrame));
+//			this.buttonPanel.add(findButton);
+//		}
+//	}
+	
+	private void inButtonPanel(String menuId, String roleId) {
 		MisFunctionDAO dao = new MisFunctionDAOImpl();
 		this.buttonPanel = new JPanel(new GridLayout(6, 1));
-		List<MisFunction> list = dao.findByMenuId(menuId);
+		List<MisFunction> list = dao.findByMenuIdAndRoleId(menuId, roleId);
 		for (MisFunction misFunction : list) {
 			JButton findButton = new JButton();
 			findButton.setActionCommand(misFunction.getFunctionId());
@@ -38,8 +54,9 @@ public class MenuListener implements ActionListener {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public MenuListener(JFrame mainFrame) {
+	public MenuListener(JFrame mainFrame, MisUser misUser) {
 		this.mainFrame = mainFrame;
+		this.misUser = misUser;
 	}
 	
 	@Override
@@ -57,7 +74,7 @@ public class MenuListener implements ActionListener {
 		
 		JPanel leftPanel = new JPanel(new BorderLayout());
 		
-		this.inButtonPanel(e.getActionCommand());
+		this.inButtonPanel(e.getActionCommand(), this.misUser.getRoleId());
 		leftPanel.add(this.buttonPanel, BorderLayout.NORTH);
 		welcomePanel.add(leftPanel, BorderLayout.WEST);
 		
