@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 设置界面样式主题为简单布局主题，能够使用jsp的样式表格式化标签 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="true" />
+
+	<package name="emp" extends="struts-default">
+		<!-- 
+			name="*_*" 第一个*表示方法名称,例如add
+					   第二个*表示Action前缀名称,例如ProductAction的Product	
+						则访问路径为add_Product
+							
+			{2}:表示第二个*的位置,替代XxxAction的Xxx
+			{1}:表示第一个*的位置,替代XxxAction的执行方法			
+		 -->
+		<action name="*_*" class="com.action.{2}Action" method="{1}">
+			<result name="ok">${path}</result>
+			<result name ="sok" type="redirect">${path}</result>
+			<result name="error">index.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>
